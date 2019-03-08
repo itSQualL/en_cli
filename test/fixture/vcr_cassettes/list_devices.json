@@ -1,0 +1,25 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "test.com:4000/api/v1/engines/devices?token=egu65s1ZEOy0JTMyICmpuFrS&username=parcelar"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"total_pages\":1,\"total_entries\":1,\"page_size\":10,\"page_number\":1,\"devices\":[{\"uid\":\"asdf\",\"running\":null,\"pressure_transducers\":[],\"owner_id\":\"sergio\",\"name\":null}]}",
+      "headers": {
+        "cache-control": "max-age=0, private, must-revalidate",
+        "content-length": "166",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Fri, 08 Mar 2019 17:32:26 GMT",
+        "server": "Cowboy"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
