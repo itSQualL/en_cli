@@ -1,11 +1,11 @@
 # EnCli
 
-**TODO: Add description**
+API wrapper for engima
+
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `en_cli` to your list of dependencies in `mix.exs`:
+Add `en_cli` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -15,7 +15,14 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/en_cli](https://hexdocs.pm/en_cli).
+And finally add to your `config.exs`:
 
+```elixir
+config :en_cli,
+  base_uri: "https://domain.com/api/v1",
+  username: "your_username",
+  token: "your_token"
+
+```
+
+Documentation at [https://hexdocs.pm/en_cli](https://hexdocs.pm/en_cli/EnCli.html).
