@@ -1,0 +1,25 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": [],
+      "method": "delete",
+      "options": [],
+      "request_body": "",
+      "url": "test.com:4000/api/v1/engines/devices/asdf?token=egu65s1ZEOy0JTMyICmpuFrS&username=parcelar"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"message\":\"Device unlinked\"}",
+      "headers": {
+        "cache-control": "max-age=0, private, must-revalidate",
+        "content-length": "29",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 09 Mar 2019 09:17:10 GMT",
+        "server": "Cowboy"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

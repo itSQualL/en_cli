@@ -51,4 +51,30 @@ defmodule EnCliTest do
       end
     end
   end
+
+  describe "unlink_device/1" do
+    test "with good params" do
+      use_cassette "unlink_device" do
+        assert {:ok, %{"message" => _}} = EnCli.unlink_device("asdf")
+      end
+    end
+
+    test "with bad uid" do
+      use_cassette "unlink_device_with_bad_params" do
+        assert {:error, %{"message" => "Resource not found"}} = EnCli.unlink_device("bad_device")
+      end
+    end
+
+    test "with already unlinked device" do
+      use_cassette "unlink_device_with_already_unlinked_device" do
+        assert {:error, %{"message" => "Resource not found"}} = EnCli.unlink_device("asdf")
+      end
+    end
+
+    test "with bad credentials" do
+      use_cassette "unlink_device_with_bad_credentials" do
+        assert {:error, %{"message" => "bad credentials"}} = EnCli.unlink_device("asdf")
+      end
+    end
+  end
 end
