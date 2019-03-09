@@ -1,0 +1,27 @@
+[
+  {
+    "request": {
+      "body": "{\"device\":{\"uid\":\"asdf\",\"owner_id\":\"220\"}}",
+      "headers": {
+        "Content-type": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "test.com:4000/api/v1/engines/devices?token=egu65s1ZEOy0JTMyICmpuFrS&username=parcelar"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"errors\":{\"owner_id\":[\"Device already linked\"]}}",
+      "headers": {
+        "cache-control": "max-age=0, private, must-revalidate",
+        "content-length": "49",
+        "content-type": "application/json; charset=utf-8",
+        "date": "Sat, 09 Mar 2019 09:06:45 GMT",
+        "server": "Cowboy"
+      },
+      "status_code": 422,
+      "type": "ok"
+    }
+  }
+]
