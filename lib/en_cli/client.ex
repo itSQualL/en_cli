@@ -18,6 +18,12 @@ defmodule EnCli.Client do
     |> custom_response
   end
 
+  def update(url, params) do
+    url
+    |> put(params, @headers)
+    |> custom_response
+  end
+
   def delete(url, opts \\ []) do
     url
     |> delete([], params: Enum.into(opts, %{}))

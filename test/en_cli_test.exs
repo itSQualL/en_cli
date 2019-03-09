@@ -52,10 +52,36 @@ defmodule EnCliTest do
     end
   end
 
+  describe "update_device/2" do
+    test "with good params" do
+      use_cassette "update_device" do
+        assert {:ok, %{"message" => "Device updated"}} = EnCli.update_device("asdf", %{name: "engine1"})
+      end
+    end
+
+    test "with bad uid" do
+      use_cassette "update_device_with_bad_params" do
+        assert {:error, %{"message" => "Resource not found"}} = EnCli.update_device("bad_device", %{name: "engine1"})
+      end
+    end
+
+    test "with  unlinked device" do
+      use_cassette "update_device_with_unlinked_device" do
+        assert {:error, %{"message" => "Resource not found"}} = EnCli.update_device("asdf", %{name: "engine1"})
+      end
+    end
+
+    test "with bad credentials" do
+      use_cassette "update_device_with_bad_credentials" do
+        assert {:error, %{"message" => "bad credentials"}} = EnCli.update_device("asdf", %{name: "engine1"})
+      end
+    end
+  end
+
   describe "unlink_device/1" do
     test "with good params" do
       use_cassette "unlink_device" do
-        assert {:ok, %{"message" => _}} = EnCli.unlink_device("asdf")
+        assert {:ok, %{"message" => "Device unlinked"}} = EnCli.unlink_device("asdf")
       end
     end
 

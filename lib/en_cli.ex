@@ -15,8 +15,10 @@ defmodule EnCli do
           | {:error, %{message: String.t()}}
   defdelegate link_device(uid, owner_id), to: Device, as: :create
 
-  # @spec update_device(String.t, [name: String.t, pressure_transducers: list(%{})] :: {:ok, %{}} | {:error, %{}}
-  # defdelegate update_device(uid, owner_id), to: Device, as: :update
+  @spec update_device(String.t(), %{}) ::
+          {:ok, %{message: String.t()}}
+          | {:error, %{message: String.t()}}
+  defdelegate update_device(uid, params), to: Device, as: :update
 
   @spec unlink_device(String.t()) :: {:ok, String.t()} | {:error, %{message: String.t()}}
   defdelegate unlink_device(uid), to: Device, as: :delete
