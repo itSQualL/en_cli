@@ -36,12 +36,12 @@ defmodule EnCli.Client do
 
   def process_request_body(body), do: Poison.encode!(body)
 
-  def process_response(%{status_code: 200, body: body}), do: {:ok, Poison.decode!(body)}
-  def process_response(%{status_code: 201, body: body}), do: {:ok, Poison.decode!(body)}
+  def process_response(%{status_code: 200, body: body}), do: {:ok, Poison.decode!(body, [keys: :atoms])}
+  def process_response(%{status_code: 201, body: body}), do: {:ok, Poison.decode!(body, [keys: :atoms])}
 
-  def process_response(%{status_code: 401, body: body}), do: {:error, Poison.decode!(body)}
-  def process_response(%{status_code: 404, body: body}), do: {:error, Poison.decode!(body)}
-  def process_response(%{status_code: 422, body: body}), do: {:error, Poison.decode!(body)}
+  def process_response(%{status_code: 401, body: body}), do: {:error, Poison.decode!(body, [keys: :atoms])}
+  def process_response(%{status_code: 404, body: body}), do: {:error, Poison.decode!(body, [keys: :atoms])}
+  def process_response(%{status_code: 422, body: body}), do: {:error, Poison.decode!(body, [keys: :atoms])}
 
   def process_response(%{status_code: 500}), do: {:error, %{message: "Internal Server Error"}}
 
