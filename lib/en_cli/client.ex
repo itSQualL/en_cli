@@ -34,7 +34,8 @@ defmodule EnCli.Client do
 
   def process_request_params(params), do: put_credentials(params)
 
-  def process_request_body(body), do: Poison.encode!(body)
+  def process_request_body(body) when body != "", do: Poison.encode!(body)
+  def process_request_body(body), do: body
 
   def process_response(%{status_code: 200, body: body}), do: {:ok, Poison.decode!(body, [keys: :atoms])}
   def process_response(%{status_code: 201, body: body}), do: {:ok, Poison.decode!(body, [keys: :atoms])}
