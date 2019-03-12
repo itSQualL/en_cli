@@ -10,7 +10,7 @@ Add `en_cli` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:en_cli, "~> 0.1.0"}
+    {:en_cli, "~> 0.3.0"}
   ]
 end
 ```
