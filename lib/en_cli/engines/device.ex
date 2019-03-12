@@ -8,6 +8,10 @@ defmodule EnCli.Engines.Device do
     Client.index("/engines/devices", opts)
   end
 
+  def show(uid) do
+    Client.show("/engines/devices/" <> uid)
+  end
+
   def create(uid, owner_id) do
     params = %{device: %{uid: uid, owner_id: owner_id}}
     Client.create("/engines/devices", params)

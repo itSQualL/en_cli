@@ -12,6 +12,12 @@ defmodule EnCli.Client do
     |> custom_response
   end
 
+  def show(url) do
+    url
+    |> get
+    |> custom_response
+  end
+
   def create(url, params) do
     url
     |> post(params, @headers)

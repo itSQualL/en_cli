@@ -26,6 +26,30 @@ defmodule EnCliTest do
     end
   end
 
+  describe "get_device/1" do
+    test "with good params" do
+      use_cassette "get_device" do
+        assert {:ok, %{
+          device: %{
+            uid: "asdf"
+          }
+        }} = EnCli.get_device("asdf")
+      end
+    end
+
+    test "with bad credentials" do
+      use_cassette "get_device_with_bad_credentials" do
+        assert {:error, %{message: "bad credentials"}} = EnCli.get_device("bad")
+      end
+    end
+
+    test "with bad uid" do
+      use_cassette "get_device_with_bad_params" do
+        assert {:error, %{message: "Resource not found"}} = EnCli.link_device("bad_device", "221")
+      end
+    end
+  end
+
   describe "link_device/2" do
     test "with good params" do
       use_cassette "link_device" do

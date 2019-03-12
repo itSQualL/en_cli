@@ -9,6 +9,9 @@ defmodule EnCli do
           {:ok, %{}} | {:error, %{message: String.t()}}
   defdelegate list_devices(opts \\ []), to: Device, as: :index
 
+  @spec get_device(String.t()) :: {:ok, %{device: %{}}} | {:error, %{message: String.t()}}
+  defdelegate get_device(uid), to: Device, as: :show
+
   @spec link_device(String.t(), String.t()) ::
           {:ok, %{message: String.t()}}
           | {:error, %{errors: %{}}}
