@@ -25,4 +25,10 @@ defmodule EnCli do
 
   @spec unlink_device(String.t()) :: {:ok, String.t()} | {:error, %{message: String.t()}}
   defdelegate unlink_device(uid), to: Device, as: :delete
+
+  @spec start_engine(String.t()) :: {:ok, %{message: String.t()}} | {:error, %{message: String.t()}}
+  def start_engine(uid), do: update_device(uid, %{running: true})
+
+  @spec start_engine(String.t()) :: {:ok, %{message: String.t()}} | {:error, %{message: String.t()}}
+  def stop_engine(uid), do: update_device(uid, %{running: false})
 end
