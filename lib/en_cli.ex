@@ -29,6 +29,6 @@ defmodule EnCli do
   @spec start_engine(String.t()) :: {:ok, %{message: String.t()}} | {:error, %{message: String.t()}}
   def start_engine(uid), do: update_device(uid, %{running: true})
 
-  @spec start_engine(String.t()) :: {:ok, %{message: String.t()}} | {:error, %{message: String.t()}}
+  @spec stop_engine(String.t()) :: {:ok, %{message: String.t()}} | {:error, %{message: String.t()}}
   def stop_engine(uid), do: update_device(uid, %{running: false})
 end
